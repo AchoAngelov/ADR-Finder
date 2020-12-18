@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+    color: white;
+	overflow-x: hidden;
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+    background: #222222;
+}
+
+ul { margin: 0; padding: 0; }
+
+a, button { transition: all 0.3s ease; }
+button:focus { outline: none; }
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+a {	color: #FFF;  }
+
+a:hover { color: #FF0; }
+
+h1,h2,h3 { font-weight: 300; }
+
+p {
+    font-size: 1rem;
+    line-height: 2.2;
+}
