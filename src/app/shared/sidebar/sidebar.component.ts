@@ -6,13 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  slide: boolean;
+  slide = true;
   constructor() { }
 
   ngOnInit(): void {
-    this.slide = true;
   }
-  menuOpen(): void{
+  menuOpen(): void {
     this.slide = !this.slide;
   }
 }

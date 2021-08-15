@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     public categoryService: CategoryService,
     public adrService: AdrService
-  ) { }
+  ) {}
 
  ngOnInit(): void{
   this.categoryService.getCategories().subscribe(categories => {
