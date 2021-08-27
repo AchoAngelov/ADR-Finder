@@ -10,13 +10,13 @@ export class AdrService {
   constructor(private http: HttpClient) { }
 
   getAdrs(): Observable<IAdr[]> {
-    const response = this.http.get<IAdr[]>(`${this.apiUrl}/adrs`);
+    const response = this.http.get<IAdr[]>(`${this.apiUrl}/adr`);
     console.log(response);
     return response;
   }
 
   getAdr(id: string): Observable<IAdr> {
-    return this.http.get<IAdr>(`${this.apiUrl}/adrs/${id}`);
+    return this.http.get<IAdr>(`${this.apiUrl}/adr/${id}`);
   }
 
 }

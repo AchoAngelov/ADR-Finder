@@ -1,0 +1,30 @@
+<div class="login-dark row no-gutters align-self-center">
+  <div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <form *ngIf="!isLoading" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h2 class="sr-only">Login Form</h2>
+    <div class="illustration">
+      <i class="icon ion-ios-locked-outline"></i>
+    </div>
+    <div class="form-group" *ngIf="!isLoginMode">
+      <input class="form-control" type="text" name="name" ngModel required placeholder="Име">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="email" name="email" ngModel required placeholder="Имейл">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="password" name="password" ngModel require placeholder="Парола">
+    </div>
+    <div class="form-group" *ngIf="!isLoginMode">
+      <input class="form-control" type="password" name="cPassword" ngModel require placeholder="Повтори Паролата">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">{{ isLoginMode ? 'Влез' : 'Регистрирай се' }}</button>
+    </div>
+    <a style="cursor: pointer;" (click)="onSwitchMode()" class="forgot">
+     {{ isLoginMode ? 'Нямаш профил? Регистрирай се още сега!' : 'Влезте в съществуващ профил' }}
+    </a>
+  </form>
+
+</div>

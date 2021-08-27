@@ -7,35 +7,33 @@
     <nav id="tmMainNav" class="tm-main-nav">
       <ul>
         <li>
-          <a routerLink="" routerLinkActive="active" class="scrolly">
-            <i class="fas fa-comments tm-nav-fa-icon"></i>
+          <a routerLink="/" routerLinkActive="active-link" class="scrolly">
             <span>Начало</span>
           </a>
         </li>
         <li>
           <a routerLink="/adr-info" routerLinkActive="active" class="scrolly">
-            <i class="fas fa-home tm-nav-fa-icon"></i>
-            <span>Какво е АДР?</span>
+            <span>Какво е ADR?</span>
           </a>
         </li>
-        <li>
+        <li *ngIf="isAuthenticated">
           <a routerLink="/adrs" routerLinkActive="active" class="scrolly">
-            <i class="fas fa-map tm-nav-fa-icon"></i>
-            <span>АДР библиотека</span>
+            <span>ADR библиотека</span>
           </a>
         </li>
-        <li>
+        <li *ngIf="isAuthenticated">
           <a routerLink="/categories" routerLinkActive="active" class="scrolly">
-            <i class="fas fa-users tm-nav-fa-icon"></i>
-            <span>АДР Категории</span>
+            <span>ADR Категории</span>
           </a>
         </li>
-      </ul>
-      <ul>
-        <li>
-          <a routerLink="/login" routerLinkActive="active" class="scrolly">
-            <i class="fas fa-home tm-nav-fa-icon"></i>
+        <li *ngIf="!isAuthenticated">
+          <a routerLink="/auth" routerLinkActive="active" class="scrolly">
             <span>Вход</span>
+          </a>
+        </li>
+        <li *ngIf="isAuthenticated">
+          <a style="cursor: pointer;" (click)="onLogout()" class="scrolly">
+            <span>Изход</span>
           </a>
         </li>
       </ul>

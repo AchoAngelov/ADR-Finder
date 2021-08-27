@@ -3,12 +3,12 @@ body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 18px;
 	font-weight: 300;
-    color: white;
+  color: white;
 	overflow-x: hidden;
-    min-height: 100vh;
-    height: 100%;
-    position: relative;
-    background: #222222;
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  background: #222222;
 }
 
 ul { margin: 0; padding: 0; }

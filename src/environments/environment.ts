@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost/ADR-api/public/api'
+  apiUrl: 'http://localhost/adr-api/public/api/'
 };
 
 /*

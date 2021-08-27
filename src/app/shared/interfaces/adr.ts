@@ -1,10 +1,8 @@
-import { IBase } from './base';
 import { ICategory } from './category';
 
-export interface IAdr extends IBase {
+export interface IAdr {
   name: string;
   oCode: string;
   hCode: string;
   description: string;
-  category_id: ICategory;
 }
