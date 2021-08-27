@@ -23,18 +23,6 @@ const routes: Routes = [
     component: AdrListComponent
   },
   {
-    path: 'categories',
-    component: CategoryListComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'new',
-        canActivateChild: [AdminGuard],
-        component: AddCategoryComponent
-      },
-    ]
-  },
-  {
     path: 'adr-info',
     pathMatch: 'full',
     component: AdrInfoComponent

@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
 import { AdrListComponent } from './pages/adrs/adr-list/adr-list.component';
 import { CategoryModule } from './pages/categories/category.module';
 import { AdrModule } from './pages/adrs/adr.module';
@@ -21,7 +20,6 @@ import { HomeComponent } from './pages/home/home.component';
     AppComponent,
     DashboardComponent,
     SidebarComponent,
-    CategoryListComponent,
     AdrListComponent,
     HomeComponent,
   ],

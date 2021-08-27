@@ -6,7 +6,7 @@ export class User {
     public isAdmin: boolean
   ) {}
 
-  get getToken(): string {
+  getToken(): string {
     return this.token;
   }
 }

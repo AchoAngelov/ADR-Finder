@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit {
       authObs = this.user.login(form.value.email, form.value.password);
     }
     else {
-      this.user.signup(form.value.name, form.value.email, form.value.password, form.value.cPassword);
+      authObs = this.user.signup(form.value.name, form.value.email, form.value.password, form.value.cPassword);
     }
     authObs.subscribe(
       resData => {

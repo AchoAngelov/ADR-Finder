@@ -1,33 +1,43 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { stringify } from '@angular/compiler/src/util';
+import { ICategory } from 'src/app/shared/interfaces';
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { ICategory, IAdr } from 'src/app/shared/interfaces';
 import { CategoryService } from './../category.service';
+import { Subject } from 'rxjs';
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
   styleUrls: ['./add-category.component.css']
 })
 export class AddCategoryComponent implements OnInit {
-  category: ICategory;
-  @ViewChild('f', { static: false }) categoryForm: NgForm;
-
-  constructor(private categoryService: CategoryService) { }
+  categoryForm: FormGroup;
+  categoryData: ICategory;
+  category = new Subject<ICategory>();
+  constructor(
+    private categoryService: CategoryService,
+    private formBuilder: FormBuilder
+    ) {}
 
   ngOnInit(): void {
+    this.initForm();
   }
-  onSubmit(form: NgForm): any {
-    if (!form.valid) {
-      return;
+  private initForm() {
+    this.categoryForm = this.formBuilder.group({
+      name : ['', [Validators.required]],
+      description:['', [Validators.required]],
+      categoryNumber : ['', [Validators.required]],
+      imgPath: ['', [Validators.required]]
+    });
+  }
+  onSubmit() {
+    console.log(this.categoryForm);
+    this.categoryData = {
+      name:  this.categoryForm.value.name,
+      description:  this.categoryForm.value.description,
+      categoryNumber:  this.categoryForm.value.categoryNumber,
+      imgPath:  this.categoryForm.value.imgPath,
     }
-
-    this.category = {
-      name: form.value.name,
-      description: form.value.description,
-      adrs: [{}]
-    };
-    this.categoryService.addCategory(this.category).subscribe();
-    this.categoryForm.reset();
+    this.categoryService.addCategory(this.categoryData).subscribe();
+    this.category.next(this.categoryData);
   }
 }

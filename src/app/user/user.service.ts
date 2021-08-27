@@ -27,7 +27,7 @@ export class UserService {
           name,
           email,
           password,
-          c_password: cPassword
+          cPassword
         }
       )
       .pipe(

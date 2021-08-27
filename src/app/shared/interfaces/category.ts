@@ -1,5 +1,6 @@
 export interface ICategory {
   name: string;
   description: string;
-  adrs: object[];
+  imgPath: string;
+  categoryNumber: number;
 }
