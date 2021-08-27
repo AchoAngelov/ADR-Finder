@@ -14,6 +14,7 @@ import { AdrModule } from './pages/adrs/adr.module';
 import { CategoryService } from './pages/categories/category.service';
 import { AdrService } from './pages/adrs/adr.service';
 import { HomeComponent } from './pages/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeComponent } from './pages/home/home.component';
     CategoryModule,
     AdrModule,
     UserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     CategoryService,

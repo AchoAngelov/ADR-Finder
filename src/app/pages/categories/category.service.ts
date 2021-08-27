@@ -5,7 +5,7 @@ import { environment } from '../../../environments/environment';
 
 import { UserService } from './../../user/user.service';
 import { ICategory } from '../../shared/interfaces';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 const apiUrl = environment.apiUrl;
 @Injectable()
 export class CategoryService {
@@ -41,8 +41,17 @@ export class CategoryService {
     return this.http.post<ICategory[]>(`${apiUrl}adr-classes`, category, { headers });
 
   }
-  getCategory(id: string): Observable<ICategory> {
-    return this.http.get<ICategory>(`${apiUrl}/adr-classes/${id}`);
+  getCategory(id: number): Observable<ICategory>{
+    const  headers = this.getHeaderToken();
+    return this.http.get<any>(`${apiUrl}adr-classes/${id}`, { headers }).pipe(map(response => {
+      return response.data;
+    }));
+  }
+  editCategory(category, id: number): Observable<ICategory>{
+    const  headers = this.getHeaderToken();
+    return this.http.put<any>(`${apiUrl}adr-classes/${id}`, category, { headers }).pipe(map(response => {
+      return response.data;
+    }));
   }
 
 }

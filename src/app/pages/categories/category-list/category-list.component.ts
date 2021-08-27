@@ -1,9 +1,7 @@
-import { ICategory } from 'src/app/shared/interfaces';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CategoryService } from './../category.service';
-import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
@@ -11,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CategoryListComponent implements OnInit {
   categories: any;
+  categoryId: number;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -22,7 +21,9 @@ export class CategoryListComponent implements OnInit {
       this.categories = response.data;
     });
   }
-
+  onEdit(id) {
+    this.router.navigate([id], { relativeTo: this.route });
+  }
   onNewCategory(): void {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
