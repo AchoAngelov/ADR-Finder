@@ -1,37 +1,29 @@
-import { AdminGuard } from './user/admin.guard';
-import { AuthGuard } from './user/auth/auth.guard';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CategoryListComponent } from './pages/categories/category-list/category-list.component';
-import { AdrListComponent } from './pages/adrs/adr-list/adr-list.component';
-import { AdrInfoComponent } from './pages/adrs/adr-info/adr-info.component';
-import { AddCategoryComponent } from './pages/categories/add-category/add-category.component';
 import { AuthComponent } from './user/auth/auth.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AdrInfoComponent } from './pages/adrs/adr-info/adr-info.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  // { path: '**', component: PageNotFoundComponent },
   {
     path: '',
     pathMatch: 'full',
     component: HomeComponent
   },
   {
-    path: 'adrs',
+    path: 'auth',
     pathMatch: 'full',
-    canActivate: [AdminGuard],
-    component: AdrListComponent
+    component: AuthComponent
   },
   {
     path: 'adr-info',
     pathMatch: 'full',
     component: AdrInfoComponent
   },
-  {
-    path: 'auth',
-    pathMatch: 'full',
-    component: AuthComponent
-  }
 ];
 
 @NgModule({

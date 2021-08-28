@@ -6,9 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryRoutingModule } from './category-routing.module';
 import { AddCategoryComponent } from './add-category/add-category.component';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -19,9 +17,7 @@ import { MatInputModule } from '@angular/material/input';
     CommonModule,
     CategoryRoutingModule,
     ReactiveFormsModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatInputModule,
+    ScrollingModule
   ],
   providers: [
     CategoryService,

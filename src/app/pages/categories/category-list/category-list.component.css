@@ -1,0 +1,13 @@
+table {
+  color: #fff;
+}
+.add-btn {
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 60px;
+  background-color: #0000006b;
+}
+.btn {
+  min-width: 120px !important;
+}

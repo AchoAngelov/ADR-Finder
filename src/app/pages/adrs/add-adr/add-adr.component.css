@@ -8,5 +8,5 @@
   background-color: #ff932d;
 }
 .btn {
-  min-width: 120px !important;
+  width: 120px;
 }

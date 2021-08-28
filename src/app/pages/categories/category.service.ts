@@ -6,9 +6,9 @@ import { environment } from '../../../environments/environment';
 import { UserService } from './../../user/user.service';
 import { ICategory } from '../../shared/interfaces';
 import { map, tap } from 'rxjs/operators';
-const apiUrl = environment.apiUrl;
 @Injectable()
 export class CategoryService {
+  apiUrl = environment.apiUrl;
   category = new Subject<ICategory>();
   constructor(
     private http: HttpClient,
@@ -21,7 +21,7 @@ export class CategoryService {
       if(userData){
         token = userData.token;
       }
-    })
+    });
     const headers = new HttpHeaders({
       Authorization : `Bearer ${token}`
     });
@@ -29,7 +29,7 @@ export class CategoryService {
   }
   getCategories(): any {
     const  headers = this.getHeaderToken();
-    return this.http.get<ICategory>(`${apiUrl}adr-classes`, { headers })
+    return this.http.get<ICategory>(`${this.apiUrl}adr-classes`, { headers })
     .pipe(tap(
       category => {
         this.category.next(category);
@@ -38,20 +38,24 @@ export class CategoryService {
   }
   addCategory(category: ICategory): any {
     const  headers = this.getHeaderToken();
-    return this.http.post<ICategory[]>(`${apiUrl}adr-classes`, category, { headers });
+    return this.http.post<ICategory[]>(`${this.apiUrl}adr-classes`, category, { headers });
 
   }
   getCategory(id: number): Observable<ICategory>{
     const  headers = this.getHeaderToken();
-    return this.http.get<any>(`${apiUrl}adr-classes/${id}`, { headers }).pipe(map(response => {
+    return this.http.get<any>(`${this.apiUrl}adr-classes/${id}`, { headers }).pipe(map(response => {
       return response.data;
     }));
   }
-  editCategory(category, id: number): Observable<ICategory>{
+  editCategory(category:ICategory, id: number): Observable<ICategory>{
     const  headers = this.getHeaderToken();
-    return this.http.put<any>(`${apiUrl}adr-classes/${id}`, category, { headers }).pipe(map(response => {
+    return this.http.put<any>(`${this.apiUrl}adr-classes/${id}`, category, { headers }).pipe(map(response => {
       return response.data;
     }));
+  }
+  deleteCategory(id: number): Observable<ICategory>{
+    const  headers = this.getHeaderToken();
+    return this.http.delete<any>(`${this.apiUrl}adr-classes/${id}`, { headers });
   }
 
 }

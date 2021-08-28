@@ -4,7 +4,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { CategoryService } from './../category.service';
 import { Subject } from 'rxjs';
-import { ActivatedRoute, Params} from '@angular/router';
+import { ActivatedRoute, Params, Router} from '@angular/router';
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
@@ -19,7 +19,8 @@ export class AddCategoryComponent implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -65,5 +66,6 @@ export class AddCategoryComponent implements OnInit {
     } else {
       this.categoryService.addCategory(this.categoryData).subscribe();
     }
+    this.router.navigate(['categories']);
   }
 }

@@ -8,21 +8,21 @@ import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { AdrListComponent } from './pages/adrs/adr-list/adr-list.component';
 import { CategoryModule } from './pages/categories/category.module';
 import { AdrModule } from './pages/adrs/adr.module';
 import { CategoryService } from './pages/categories/category.service';
 import { AdrService } from './pages/adrs/adr.service';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SidebarComponent,
-    AdrListComponent,
     HomeComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

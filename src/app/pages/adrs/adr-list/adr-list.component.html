@@ -1,1 +1,33 @@
-<p>adr-list works!</p>
+<div class="row no-gutters pt-5 mt-4">
+  <div class="col-12 position-relative">
+    <div class="overflow-scroll">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Име</th>
+          <th scope="col">Код</th>
+          <th scope="col">Категория</th>
+          <th scope="col">Опций</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let adr of adrs; let i = index">
+          <th scope="row">{{i+1}} </th>
+          <td>{{adr.name }}</td>
+          <td>{{adr.adrNumber}}</td>
+          <td>{{adr.category }}</td>
+          <td>
+            <button (click)="onEdit(adr.id)" class="btn btn-primary mx-1 mb-xl-0 mb-2">Редактирай</button>
+            <button (click)="onDelete(adr.id)" class="btn btn-danger mx-1">Изтрий</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="position-fixed add-btn text-right d-flex">
+    <button *ngIf="isAdmin" class="btn btn-primary align-self-center ml-auto" (click)="onNewAdr()">Добави веществото</button>
+  </div>
+</div>
+<router-outlet></router-outlet>
+</div>

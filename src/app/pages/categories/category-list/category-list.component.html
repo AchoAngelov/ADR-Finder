@@ -1,27 +1,35 @@
-<div class="row no-gutters">
-  <div class="col-12">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Име</th>
-          <th scope="col">Код</th>
-          <th scope="col">Описание</th>
-          <th scope="col">Брой ADR</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let category of categories; let i = index">
-          <th scope="row">{{i}} </th>
-          <td>{{category.name }}</td>
-          <td>{{category.name }}</td>
-          <td>{{category.name }}</td>
-          <td>{{category.name }}</td>
-          <td><button (click)="onEdit(category.id)" class="btn btn-primary">Редактирай</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button class="btn btn-primary" (click)="onNewCategory()">Добави категория</button>
+<div class="row no-gutters pt-5 mt-4">
+  <div class="col-12 position-relative">
+    <div class="overflow-scroll">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Име</th>
+            <th scope="col">Код</th>
+            <th scope="col">Описание</th>
+            <th scope="col" class="text-center">Табела</th>
+            <th scope="col" class="text-center">Опций</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories; let i = index">
+            <th scope="row">{{i+1}} </th>
+            <td>{{category.name }}</td>
+            <td>{{category.categoryNumber }}</td>
+            <td>{{category.description }}</td>
+            <td><img [src]="category.imgPath" class=" mx-auto my-3 img-responsive"></td>
+            <td>
+              <button (click)="onEdit(category.id)" class="btn btn-primary  m-1">Редактирай</button>
+              <button (click)="onDelete(category.id)" class="btn btn-danger m-1">Изтрий</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="position-fixed add-btn text-right d-flex">
+      <button *ngIf="isAdmin" class="btn btn-primary align-self-center ml-auto" (click)="onNewCategory()">Добави категория</button>
+    </div>
   </div>
   <router-outlet></router-outlet>
 </div>
